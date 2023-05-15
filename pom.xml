@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.fastrpc</groupId>
-    <artifactId>RPC-client-spring-boot-starter</artifactId>
+    <artifactId>rpc</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -21,12 +22,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <modules>
+        <module>consumer</module>
+        <module>Provider</module>
+        <module>Provider-api</module>
+    </modules>
+
     <dependencies>
-        <dependency>
-            <groupId>cn.fastrpc</groupId>
-            <artifactId>rpc-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -42,6 +44,26 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.fastrpc</groupId>
+                <artifactId>Consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.fastrpc</groupId>
+                <artifactId>Provider</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.fastrpc</groupId>
+                <artifactId>Provider-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 
